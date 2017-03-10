@@ -261,38 +261,42 @@
 		-webkit-box-pack: center;
 		-ms-flex-pack: center;
 		justify-content: center;
-		text-align: center; }
+	}
 
 	&._end {
 		-webkit-box-pack: end;
 		-ms-flex-pack: end;
 		justify-content: flex-end;
-		text-align: end; }
+	}
 
 	&._top {
 		-webkit-box-align: start;
 		-ms-flex-align: start;
-		align-items: flex-start; }
+		align-items: flex-start;
+	}
 
 	&._middle {
 		-webkit-box-align: center;
 		-ms-flex-align: center;
-		align-items: center; }
+		align-items: center;
+	}
 
 	&._bottom {
 		-webkit-box-align: end;
 		-ms-flex-align: end;
-		align-items: flex-end; }
+		align-items: flex-end;
+	}
 
 	&._around {
 		-ms-flex-pack: distribute;
-		justify-content: space-around; }
+		justify-content: space-around;
+	}
 
 	&._between {
 		-webkit-box-pack: justify;
 		-ms-flex-pack: justify;
-		justify-content: space-between; }
-
+		justify-content: space-between;
+	}
 }
 
 
