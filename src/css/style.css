@@ -211,13 +211,23 @@ code {
   min-height: 1rem;
   margin-bottom: 0;
   background: #6f7898;
-  border: 1px solid #FFF;
+  border: 1px solid #ffd;
   border-radius: 2px;
   overflow: hidden;
   text-align: center;
   color: white;
 }
-.box-row {
+
+.box._selected
+{
+	background: #333E62;
+}
+
+.box._row {
+  margin-bottom: 1rem;
+}
+
+/*.box-row {
   margin-bottom: 1rem;
 }
 .box-first {
@@ -235,6 +245,7 @@ code {
   box-sizing: border-box;
   padding: 0.5rem;
 }
+*/
 .page-footer {
   box-sizing: border-box;
   padding-bottom: 3rem;
@@ -287,4 +298,16 @@ code {
     display: block;
     visibility: visible;
   }
+}
+
+
+.testpage-grid-highlight .grid
+{
+	background: #d0d3de;
+}
+
+.testpage-grid-highlight .grid._outlined,
+.testpage-grid-highlight .grid._outlined .grid
+{
+	outline: 1px solid #f00;
 }
