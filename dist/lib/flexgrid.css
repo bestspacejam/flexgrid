@@ -182,13 +182,11 @@
   .grid._center {
     -webkit-box-pack: center;
     -ms-flex-pack: center;
-    justify-content: center;
-    text-align: center; }
+    justify-content: center; }
   .grid._end {
     -webkit-box-pack: end;
     -ms-flex-pack: end;
-    justify-content: flex-end;
-    text-align: end; }
+    justify-content: flex-end; }
   .grid._top {
     -webkit-box-align: start;
     -ms-flex-align: start;

@@ -227,6 +227,10 @@ code {
   margin-bottom: 1rem;
 }
 
+.box._large {
+  height: 8rem;
+}
+
 /*.box-row {
   margin-bottom: 1rem;
 }
