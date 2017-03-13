@@ -1,0 +1,145 @@
+@mixin mx-max-width($width)
+{
+	-ms-flex-preferred-size: $width;
+	flex-basis: $width;
+	max-width: $width;
+}
+
+@mixin mx-col-max-width($cols, $index)
+{
+	@include mx-max-width((100% / $cols) * $index);
+}
+
+
+@mixin mx-gen-cols($prefix, $number)
+{
+	@for $i from 1 through $number
+	{
+		#{$prefix}#{$i}
+		{
+			@include mx-col-max-width($number, $i);
+		}
+	}
+}
+
+@mixin mx-gen-alignments($affix: "")
+{
+	&._start#{$affix} {
+		-webkit-box-pack: start;
+		-ms-flex-pack: start;
+		justify-content: flex-start;
+		text-align: start; }
+
+	&._center#{$affix} {
+		-webkit-box-pack: center;
+		-ms-flex-pack: center;
+		justify-content: center;
+	}
+
+	&._end#{$affix} {
+		-webkit-box-pack: end;
+		-ms-flex-pack: end;
+		justify-content: flex-end;
+	}
+
+	&._top#{$affix} {
+		-webkit-box-align: start;
+		-ms-flex-align: start;
+		align-items: flex-start;
+	}
+
+	&._middle#{$affix} {
+		-webkit-box-align: center;
+		-ms-flex-align: center;
+		align-items: center;
+	}
+
+	&._bottom#{$affix} {
+		-webkit-box-align: end;
+		-ms-flex-align: end;
+		align-items: flex-end;
+	}
+
+	&._around#{$affix} {
+		-ms-flex-pack: distribute;
+		justify-content: space-around;
+	}
+
+	&._between#{$affix} {
+		-webkit-box-pack: justify;
+		-ms-flex-pack: justify;
+		justify-content: space-between;
+	}
+}
+
+@mixin mx-col-style
+{
+	box-sizing: border-box;
+	-webkit-box-flex: 0;
+	-ms-flex: 0 0 auto;
+	flex: 0 0 auto;
+	padding-right: 8px;
+	padding-left: 8px;
+}
+
+
+
+@mixin mx-gen-cols-base-styles($prefix, $number)
+{
+	$selectors: fn-gen-cols-names($prefix, $number);
+	
+	#{$selectors}
+	{
+		@include mx-col-style;
+	}
+}
+
+
+@mixin mx-grid-media($size-label, $min-width)
+{
+	@media only screen and (min-width: $min-width)
+	{
+		.grid
+		{
+			$col-class-name: ".col-" + $size-label;
+			
+			@include mx-gen-cols-base-styles("> " + $col-class-name + "-", 12);
+			
+			@include mx-gen-cols("> " + $col-class-name + "-", 12);
+			@include mx-gen-alignments("-" + $size-label);
+			
+			> #{$col-class-name} {
+				@include mx-col-style;
+				
+				-webkit-box-flex: 1;
+				-ms-flex-positive: 1;
+				flex-grow: 1;
+				-ms-flex-preferred-size: 0;
+				flex-basis: 0;
+				max-width: 100%;
+				
+				&-reverse
+				{
+					-webkit-box-orient: vertical;
+					-webkit-box-direction: reverse;
+					-ms-flex-direction: column-reverse;
+					flex-direction: column-reverse;
+				}
+				
+				&-first
+				{
+					-webkit-box-ordinal-group: 0;
+					-ms-flex-order: -1;
+					order: -1;
+				}
+				
+				&-last
+				{
+					-webkit-box-ordinal-group: 2;
+					-ms-flex-order: 1;
+					order: 1;
+				}
+			}
+		}
+	}
+}

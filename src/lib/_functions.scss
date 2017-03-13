@@ -1,0 +1,10 @@
+@function fn-gen-cols-names($prefix, $number)
+{
+	$names: ();
+	@for $i from 1 through $number
+	{
+		$names: append($names, $prefix + $i, comma);
+	}
+	
+	@return $names;
+}

@@ -63,7 +63,7 @@ module.exports = function(grunt) {
 		  process: true
 		},
 		files: {
-		  'dist/test/index.html': ['src/index.html']
+		  'dist/test/index.html': ['src/test/index.html']
 		}
 	  }
 	},
